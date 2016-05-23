@@ -1,0 +1,7 @@
+name: Chatix
+version: 1.0
+main: me.dracconi.chatix.main
+commands:
+  chatix:
+    description: Global command
+    aliases: [chat, ch]
