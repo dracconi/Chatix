@@ -1,5 +1,7 @@
 package me.dracconi.chatix;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.dracconi.chatix.PlayerListener;
@@ -25,6 +27,8 @@ public class Main extends JavaPlugin{
         getServer().getPluginManager().registerEvents(new PlayerListener(),this);
         getCommand("chatix").setExecutor(new Commands(this));
         getLogger().info("CHATIX launched");
+        Bukkit.broadcastMessage(ChatColor.YELLOW + "Chatix 1.0v by dracconi");
+
 
     }
 //    @Override

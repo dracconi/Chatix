@@ -18,18 +18,23 @@ public class Commands implements CommandExecutor {
     public Commands(Main plugin) {
         this.plugin = plugin;
     }
-    public void chatToggle(boolean state){
+    public boolean chatToggle(boolean state){
+        if (plugin.chat_status == state){
+            return false;
+        }
         plugin.chat_status = state;
+        return true;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("chatix")) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
-                p.sendMessage(ChatColor.YELLOW + "Chatix 1.0v by dracconi");
                 if (p.hasPermission("chatix.admin")) {
                     if (args.length == 0) {
-                        plugin.chat_status ? chatToggle(false); : chatToggle(true);
+                        String message = "";
+                        if (chatToggle(!plugin.chat_status)){ message = "msg-set"; }else{ message = "msg-setted";}
+                        p.sendMessage(plugin.chat_tag+message);
                     }
                 }else if (args[0].equalsIgnoreCase("clear")) {
                             for (int i = 0; i < 100; i++) {
