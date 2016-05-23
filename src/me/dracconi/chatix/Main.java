@@ -9,7 +9,7 @@ import me.dracconi.chatix.Commands;
 /**
  * Created by dracconi on 22.05.16.
  */
-public class main extends JavaPlugin{
+public class Main extends JavaPlugin{
     public static boolean chat_status = true; //chat status default configuration
     public String chat_tag = "[CHATIX] ";
     public void loadConfiguration(){
@@ -27,8 +27,8 @@ public class main extends JavaPlugin{
         getLogger().info("CHATIX launched");
 
     }
-    @Override
-    public void onDisable(){}
+//    @Override
+//    public void onDisable(){}
 
 
 }

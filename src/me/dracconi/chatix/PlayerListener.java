@@ -1,6 +1,5 @@
 package me.dracconi.chatix;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,7 +11,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
  */
 public class PlayerListener implements Listener {
 
-    private main plugin;
+    private Main plugin;
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e){
         Player p = e.getPlayer();
@@ -24,6 +23,6 @@ public class PlayerListener implements Listener {
     }
     public void onPlayerJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
-
+        e.setJoinMessage(plugin.getConfig().getString("join-msg").replaceAll("%player%",p.getDisplayName()));
     }
 }

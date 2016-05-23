@@ -1,6 +1,6 @@
 name: Chatix
 version: 1.0
-main: me.dracconi.chatix.main
+main: me.dracconi.chatix.Main
 commands:
   chatix:
     description: Global command
