@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="spigot-1.7.10-SNAPSHOT-b1657" level="project" />
+    <orderEntry type="library" name="Vault-1.4.1" level="project" />
   </component>
 </module>

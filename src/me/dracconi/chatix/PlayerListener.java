@@ -16,7 +16,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e){
         Player p = e.getPlayer();
-        p.setDisplayName(main.fixColors(String.format("&c[&c&ldefault&c]&d %s &f",p.getName())));
+        p.setDisplayName(main.fixColors(String.format("%s %s&f:",main.getPlayerPrefix(p),p.getName())));
         e.setFormat(p.getDisplayName() + e.getMessage());
         if(!main.chat_status){
             if(!p.hasPermission("chatix.bypass")){
