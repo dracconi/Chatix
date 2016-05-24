@@ -20,32 +20,29 @@ public class Commands implements CommandExecutor {
     public Commands(Main plugin) {
         this.plugin = plugin;
     }
-    public boolean chatToggle(boolean state){
+    public boolean toggleChat(boolean state){
         plugin.chat_status = state;
         return plugin.chat_status;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("chatix")) {
-            if (sender.hasPermission("chatix.admin")) {
-                if (args.length == 0) {
-                    String msg = "";
-                    if (chatToggle(!plugin.chat_status)) {
-                        msg = "Chat turned on";
-                    } else {
-                        msg = "Chat turned off";
+                if (sender.hasPermission("chatix.admin")) {
+                    if (args.length == 0) {
+                        String msg = "";
+                        if (toggleChat(!plugin.chat_status)){msg="Chat turned on";}else{msg="Chat turned off";}
+                        sender.sendMessage(plugin.chat_tag+msg);
                     }
-                    sender.sendMessage(plugin.chat_tag + msg);
-                } else if (args[0].equalsIgnoreCase("clear")) {
-                for (int i = 0; i < 100; i++) {
-                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                        player.sendMessage("");
+                }else if (args[0].equalsIgnoreCase("clear")) {
+                            for (int i = 0; i < 100; i++) {
+                                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                                    player.sendMessage("");
+                                }
+                            }
+                            Bukkit.broadcastMessage(plugin.chat_tag + "Chat cleared by " + sender.getName());
+                        }
                     }
-                }
-                Bukkit.broadcastMessage(plugin.chat_tag + "Chat cleared by " + sender.getName());
-                }
-            }
-        }
+
         return false;
     }
 
