@@ -14,12 +14,14 @@ import me.dracconi.chatix.Commands;
 public class Main extends JavaPlugin{
     public static boolean chat_status = true; //chat status default configuration
     public String chat_tag = "[CHATIX] ";
+    public String bypassuser_tag = " (bu) ";
     public void loadConfiguration(){
 //        See "Creating you're defaults"
         getConfig().options().copyDefaults(true);
 //        Save the config whenever you manipulate it
         saveConfig();
         chat_tag = getConfig().getString("tag").replaceAll("&","§");
+        bypassuser_tag = getConfig().getString("bypassuser-tag").replaceAll("&","§");
     }
     @Override
     public void onEnable(){

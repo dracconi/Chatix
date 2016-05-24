@@ -19,6 +19,7 @@ public class PlayerListener implements Listener {
             if(!p.hasPermission("chatix.bypass")){
                 e.setCancelled(true);
             }
+            e.setFormat(plugin.bypassuser_tag + p.getDisplayName() + e.getMessage());
         }
     }
     public void onPlayerJoin(PlayerJoinEvent e){
